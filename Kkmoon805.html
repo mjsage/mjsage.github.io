@@ -107,9 +107,9 @@ var docCookies = {
 	
 		<embed id="vlc" height="540px" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" type="application/x-vlc-plugin" width="846px">
 		
-	  <!--/object> 
+	  <!--/object--> 
 		
-		<!-- /embed -->
+		<!--/embed -->
 		<br><a href="javascript:;" onclick="play()">Play</a>
 		<a href="javascript:;" onclick="stop()">Stop</a>
 		<a href="javascript:;" onclick="myfullscreen()">Fullscreen</a>
@@ -330,6 +330,9 @@ var vlc = document.getElementById(vlcid);
 //alert("stream="+Stream);
 //var id = vlc.playlist.add("rtsp://" + User + ":" + Password + "@" + IPAddress + ":" + Port + "/" + Stream ); 
 
+vlc.style.display='none';  //try to get it to display in ie - Otherwise the plugin doesn't show after IE's activex warning 
+
+
 		var streamurl = "rtsp://" + User + ":" + Password + "@" + IPAddress + ":" + Port + "/" + Stream; 
 
 		if(document.getElementById("alturl").checked) streamurl = "rtsp://" + IPAddress + "/camera-media/profile" + Stream; 
@@ -343,6 +346,7 @@ var vlc = document.getElementById(vlcid);
 
 		vlc.playlist.playItem(id);
 
+	vlc.style.display='block';	//try to get it to display in ie
 }
 
 function rld(){
